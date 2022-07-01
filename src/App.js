@@ -14,13 +14,15 @@ function App() {
   return (
     <React.Fragment>
       <Navbar />
-      <Routes>
-        <Route path='/' element={<Todo />} />
-        <Route path='/todo' element={<Todo />} />
-        <Route path='/myTasks' element={<MyTasks />} />
-        <Route path='/completeTasks' element={<CompleteTasks />} />
-        <Route path='/calender' element={<Calender />} />
-      </Routes>
+      <section style={{width: "80%", margin: "0 auto"}}>
+        <Routes>
+          <Route path='/' element={<Todo />} />
+          <Route path='/todo' element={<Todo />} />
+          <Route path='/myTasks' element={<MyTasks />} />
+          <Route path='/completeTasks' element={<CompleteTasks />} />
+          <Route path='/calender' element={<Calender />} />
+        </Routes>
+      </section>
       <Footer />
     </React.Fragment>
   );

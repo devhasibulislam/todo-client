@@ -1,6 +1,8 @@
 .complete-task-block{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 89.692vh;
+    overflow: hidden;
 }
 
 .complete-task-segment{

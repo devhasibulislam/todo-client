@@ -3,6 +3,8 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     margin: .5rem 0;
+    height: 88vh;
+    overflow: hidden;
 }
 
 input, textarea{
