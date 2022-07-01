@@ -1,0 +1,10 @@
+.complete-task-block{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.complete-task-segment{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
