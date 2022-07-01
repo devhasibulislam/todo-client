@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+:root{
+    --primaryColor: #273c75;
+    --textColor: #f5f6fa;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 2rem;
+    background-color: var(--primaryColor);
+}
+
+nav{
+    display: flex;
+}
+
+header .nav-btn{
+    border: none;
+    outline: none;
+    color: var(--textColor);
+    background-color: transparent;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 1024px) {
+    header .nav-btn{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header nav{
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primaryColor);
+        transition: 1s;
+        transform: translateY(-100vh);
+    }
+
+    header .responsive_nav{
+        transform: none;
+    }
+
+    header .close-nav-btn{
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+}

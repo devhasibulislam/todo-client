@@ -1,0 +1,11 @@
+:root{
+    --secondaryColor: #353b48;
+    --textColor: #f5f6fa;
+}
+
+.footer-block{
+    background-color: var(--secondaryColor);
+    color: var(--textColor);
+    text-align: center;
+    padding: 1rem 0;
+}
