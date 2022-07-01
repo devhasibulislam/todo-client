@@ -22,6 +22,7 @@ header{
 
 nav{
     display: flex;
+    z-index: 9;
 }
 
 header .nav-btn{
