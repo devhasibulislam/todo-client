@@ -1,0 +1,23 @@
+.my-task-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+    column-gap: 4rem;
+}
+
+.my-task-segment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 0;
+    border-color: transparent #0353b4 transparent transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
