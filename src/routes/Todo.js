@@ -61,7 +61,7 @@ const Todo = () => {
                     <div>
                         <h3>Last completed tasks</h3>
                         {
-                            todoLists.map(todoList => {
+                            todoLists?.map(todoList => {
                                 if(todoList.state === 'completed'){
                                     return <p style={{textDecoration: "line-through"}}>{todoList.title}</p>
                                 }
