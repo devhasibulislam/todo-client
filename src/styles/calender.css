@@ -1,0 +1,21 @@
+.cal-block{
+    height: 88.5vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root{
+    --secondaryColor: #353b48;
+    --textColor: #f5f6fa;
+}
+
+.cal-segment{
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--secondaryColor);
+    color: var(--textColor);
+    border-radius: 10px;
+    padding: 0 1rem;
+}
