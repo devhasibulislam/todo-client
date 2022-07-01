@@ -1,0 +1,29 @@
+.todo-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: .5rem 0;
+}
+
+input, textarea{
+    width: 100%;
+    padding: .2rem .3rem;
+}
+
+.todo-title{}
+.todo-desc{}
+.todo-btn{}
+
+.form-block{
+    padding: 0 .5rem;
+    height: fit-content;
+}
+
+.form-block:first-child{
+    margin-bottom: 1rem;
+}
+
+.form-block:last-child{
+    margin-top: 1rem;
+}
+
