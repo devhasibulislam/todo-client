@@ -12,24 +12,24 @@ const MyTasks = () => {
     const [desc, setDesc] = useState('');
     const [completed, setCompleted] = useState(false);
 
-    const { data: todoLists, refetch } = useQuery('todoLists', () => fetch('http://localhost:5000/todo').then(res => res.json()));
+    const { data: todoLists, refetch } = useQuery('todoLists', () => fetch('https://ta112-todo-app.herokuapp.com/todo').then(res => res.json()));
 
     const handleDeleteTodo = async (id) => {
-        const { data } = await axios.delete(`http://localhost:5000/todo/${id}`);
+        const { data } = await axios.delete(`https://ta112-todo-app.herokuapp.com/todo/${id}`);
         refetch();
         setDeleteModal(false);
         console.log(data);
     };
 
     const handleUpdateTodo = async (id) => {
-        const { data } = await axios.put(`http://localhost:5000/todo/${id}`, { title, desc });
+        const { data } = await axios.put(`https://ta112-todo-app.herokuapp.com/todo/${id}`, { title, desc });
         refetch();
         setUpdateModal(false);
         console.log(data);
     };
 
     const handleCompletion = async (id) => {
-        const { data } = await axios.put(`http://localhost:5000/todo/${id}`, { state: completed ? 'completed' : 'uncompleted' });
+        const { data } = await axios.put(`https://ta112-todo-app.herokuapp.com/todo/${id}`, { state: completed ? 'completed' : 'uncompleted' });
         refetch();
         console.log(data);
     };

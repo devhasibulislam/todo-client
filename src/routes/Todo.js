@@ -10,7 +10,7 @@ const Todo = () => {
         const todoTitle = event.target.title?.value;
         const todoDesc = event.target.desc?.value;
 
-        const { data } = await axios.post('http://localhost:5000/todo', {
+        const { data } = await axios.post('https://ta112-todo-app.herokuapp.com/todo', {
             title: todoTitle,
             desc: todoDesc,
             state: 'uncompleted'
@@ -21,7 +21,7 @@ const Todo = () => {
         event.target.reset();
     };
 
-    const { data: todoLists, refetch } = useQuery('todoLists', () => fetch('http://localhost:5000/todo').then(res => res.json()));
+    const { data: todoLists, refetch } = useQuery('todoLists', () => fetch('https://ta112-todo-app.herokuapp.com/todo').then(res => res.json()));
 
     return (
         <React.Fragment>

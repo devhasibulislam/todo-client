@@ -7,10 +7,10 @@ const CompleteTasks = () => {
     const [id, setId] = useState('');
     const [completed, setCompleted] = useState(false);
 
-    const { data: todoLists, refetch } = useQuery('todoLists', () => fetch('http://localhost:5000/todo').then(res => res.json()));
+    const { data: todoLists, refetch } = useQuery('todoLists', () => fetch('https://ta112-todo-app.herokuapp.com/todo').then(res => res.json()));
 
     const handleCompletion = async (id) => {
-        const { data } = await axios.put(`http://localhost:5000/todo/${id}`, { state: completed ? 'completed' : 'uncompleted' });
+        const { data } = await axios.put(`https://ta112-todo-app.herokuapp.com/todo/${id}`, { state: completed ? 'completed' : 'uncompleted' });
         refetch();
         setId('');
         console.log(data);
