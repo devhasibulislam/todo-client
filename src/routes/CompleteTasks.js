@@ -1,20 +1,26 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../components/Loading';
 import '../styles/completeTask.css';
 
 const CompleteTasks = () => {
     const [id, setId] = useState('');
     const [completed, setCompleted] = useState(false);
 
-    const { data: todoLists, refetch } = useQuery('todoLists', () => fetch('https://ta112-todo-app.herokuapp.com/todo').then(res => res.json()));
+    const { data: todoLists, isLoading, refetch } = useQuery('todoLists', () => fetch('https://todo-server-eight.vercel.app/todo').then(res => res.json()));
 
     const handleCompletion = async (id) => {
-        const { data } = await axios.put(`https://ta112-todo-app.herokuapp.com/todo/${id}`, { state: completed ? 'completed' : 'uncompleted' });
+        const { data } = await axios.put(`https://todo-server-eight.vercel.app/todo/${id}`, { state: completed ? 'completed' : 'uncompleted' });
+        
         refetch();
         setId('');
         console.log(data);
     };
+
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <React.Fragment>

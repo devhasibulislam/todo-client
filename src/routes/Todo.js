@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import '../styles/todo.css';
 import { useQuery } from 'react-query';
+import Loading from '../components/Loading';
 
 const Todo = () => {
     const handleTodoCreate = async (event) => {
@@ -10,7 +11,7 @@ const Todo = () => {
         const todoTitle = event.target.title?.value;
         const todoDesc = event.target.desc?.value;
 
-        const { data } = await axios.post('https://ta112-todo-app.herokuapp.com/todo', {
+        const { data } = await axios.post('https://todo-server-eight.vercel.app/todo', {
             title: todoTitle,
             desc: todoDesc,
             state: 'uncompleted'
@@ -21,7 +22,11 @@ const Todo = () => {
         event.target.reset();
     };
 
-    const { data: todoLists, refetch } = useQuery('todoLists', () => fetch('https://ta112-todo-app.herokuapp.com/todo').then(res => res.json()));
+    const { data: todoLists, isLoading, refetch } = useQuery('todoLists', () => fetch('https://todo-server-eight.vercel.app/todo').then(res => res.json()));
+
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <React.Fragment>
@@ -62,8 +67,8 @@ const Todo = () => {
                         <h3>Last completed tasks</h3>
                         {
                             todoLists?.map(todoList => {
-                                if(todoList.state === 'completed'){
-                                    return <p style={{textDecoration: "line-through"}}>{todoList.title}</p>
+                                if (todoList.state === 'completed') {
+                                    return <p style={{ textDecoration: "line-through" }}>{todoList.title}</p>
                                 }
                             })
                         }

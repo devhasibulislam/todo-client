@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import { FaPlus, FaMinus, FaTrash, FaPen, FaCheck, FaTimes } from 'react-icons/fa';
 import '../styles/myTask.css';
 import axios from 'axios';
+import Loading from '../components/Loading';
 
 const MyTasks = () => {
     const [expand, setExpand] = useState(false);
@@ -12,27 +13,31 @@ const MyTasks = () => {
     const [desc, setDesc] = useState('');
     const [completed, setCompleted] = useState(false);
 
-    const { data: todoLists, refetch } = useQuery('todoLists', () => fetch('https://ta112-todo-app.herokuapp.com/todo').then(res => res.json()));
+    const { data: todoLists, isLoading, refetch } = useQuery('todoLists', () => fetch('https://todo-server-eight.vercel.app/todo').then(res => res.json()));
 
     const handleDeleteTodo = async (id) => {
-        const { data } = await axios.delete(`https://ta112-todo-app.herokuapp.com/todo/${id}`);
+        const { data } = await axios.delete(`https://todo-server-eight.vercel.app/todo/${id}`);
         refetch();
         setDeleteModal(false);
         console.log(data);
     };
 
     const handleUpdateTodo = async (id) => {
-        const { data } = await axios.put(`https://ta112-todo-app.herokuapp.com/todo/${id}`, { title, desc });
+        const { data } = await axios.put(`https://todo-server-eight.vercel.app/todo/${id}`, { title, desc });
         refetch();
         setUpdateModal(false);
         console.log(data);
     };
 
     const handleCompletion = async (id) => {
-        const { data } = await axios.put(`https://ta112-todo-app.herokuapp.com/todo/${id}`, { state: completed ? 'completed' : 'uncompleted' });
+        const { data } = await axios.put(`https://todo-server-eight.vercel.app/todo/${id}`, { state: completed ? 'completed' : 'uncompleted' });
         refetch();
         console.log(data);
     };
+
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <React.Fragment>

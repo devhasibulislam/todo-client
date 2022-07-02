@@ -7,6 +7,11 @@
 
 .complete-task-segment{
     display: flex;
-    /* justify-content: center; */
     align-items: center;
+}
+
+@media only screen and (max-width: 1024px){
+    .complete-task-block{
+        grid-template-columns: 1fr;
+    }
 }
